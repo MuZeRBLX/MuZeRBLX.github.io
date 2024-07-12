@@ -13,10 +13,10 @@ A: [Discord.gg/OpenDoorStudios](https://discord.com/invite/EDZAC27jBH)
 
 
 ## Checklist For Reincarnation
-[X] First Sequence.
-[X] Start Menu
-[ ] Enemies
-[ ] First Village
+- [X] First Sequence.
+- [X] Start Menu
+- [ ] Enemies
+- [ ] First Village
 
 
 > [!NOTE]
