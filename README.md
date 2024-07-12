@@ -6,3 +6,6 @@ one example of a studio is [ Backrooms and beyond ](https://www.roblox.com/group
 
 
 📈 Current Project : [Reincarnation](https://www.roblox.com/games/18432687620/Reincarnation), a game based off of the Anime 'That Time I Got Reincarnated as a Slime'
+
+Q: How Can I Playtest Reincarnation?
+A: [Discord.gg/OpenDoorStudios](https://discord.com/invite/EDZAC27jBH)
