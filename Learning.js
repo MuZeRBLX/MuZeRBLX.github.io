@@ -32,6 +32,7 @@ function DoLogin() {
 
         document.getElementById("CreateButton").innerText = "You Logged In!"
         setTimeout(() => {document.getElementById("CreateButton").innerText = "Login";},1500)
+        window.open("https://muzerblx.github.io/website")
 
     }
 
