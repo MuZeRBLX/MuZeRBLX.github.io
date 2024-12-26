@@ -1,3 +1,89 @@
+<html>
+<nav></nav>
+<head>
+
+    <body>
+        <style>
+            body    {
+        background-color: lightgray;
+        align-items: center;
+        align-self: center;
+        text-align: center;
+            }
+            input   {
+                align-items: center; 
+                font-size: 20;color: black;
+                background-color: white;
+                accent-color: black;
+                align-self: center;
+                height: 35;
+                padding: 2%;
+                border-radius: 10px;
+                border: none;
+                margin: 2px 2px;
+            }
+            button  {
+                align-items: center; 
+                font-size: 20;color: black;
+                background-color: gray;
+                accent-color: black;
+                align-self: center;
+                width: 200;
+                padding: 0%;
+                display: inline-block;
+                cursor: pointer;
+                margin: 4px 2px;
+                padding: 15px 30px;
+                border: none;
+            }
+            .round-button {align-items: center; 
+                font-size: 20;color: black;
+                background-color: gray;
+                accent-color: black;
+                align-self: center;
+                width: 200;
+                padding: 0%;
+                display: inline-block;
+                cursor: pointer;
+                margin: 4px 2px;
+                padding: 1%;
+                border: none;
+                border-radius: 10px;
+            }
+            .round-button:hover {
+                background-color: rgb(136, 136, 136);
+                transform: scale(1.05);
+            }
+            h1 {
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+        </style>
+
+        <h1>Sign In</h1>
+
+        <input b type="text" id="InputUsername" placeholder="Username">
+        <div>
+
+        </div>
+        <div id="MajorDiv">
+
+        <input b type="text" id="InputPassword" placeholder="Password">
+
+            <div></div>
+
+        <button class="round-button" id="CreateButton">Login</button>
+
+        <script src="Learning.js"></script>
+
+        </div>
+
+    </body>
+
+</head>
+
+</html>
+
 # MuZe RBLX
 
 MuZe is a developer who went from making stupid sword fight games to full studio games
