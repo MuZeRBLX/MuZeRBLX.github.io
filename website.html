@@ -3,6 +3,10 @@
 
 <head>
 
+<title>MuZe's Website</title>
+
+</head>
+
     
     <body>
 
@@ -13,7 +17,9 @@
         align-self: center;
         text-align: center;
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            }
+            margin: 0px;
+    }
+    main {margin: 20px;}
             input   {
                 align-items: center; 
                 font-size: 20;color: white;
@@ -85,7 +91,7 @@
                 font-size: 20;color: white;
                 accent-color: black;
                 align-self: center;
-                width: 200;
+                width: 300;
                 padding: 0%;
                 display: inline-block;
                 font-family:Arial, sans-serif;
@@ -95,13 +101,57 @@
                 border: none;
                 border-radius: 10px;
             }
+            p {
+                font-size: 20;color: white;
+                accent-color: black;
+                align-self: center;
+                width: 500;
+                padding: 0%;
+                display: inline-block;
+                font-family:Arial, sans-serif;
+                font-style: normal;
+                margin: 4px 2px;
+                padding: 1%;
+                border: none;
+                border-radius: 10px;
+            }
+            .navbar ul{
+                list-style-type:none;
+                background-color: rgb(28, 27, 36);
+                padding: 0px;
+                margin: 0px;
+                overflow: hidden;
+            }
+            .navbar a{
+                color: white;
+                text-decoration: none;
+                padding: 15px;
+                display: block;
+                text-align: center;
+            }
+            .navbar a:hover{
+                background-color: hsl(0, 0%, 10%);
+            }
+            .navbar li{float:left;}
 
 
         </style>
 
+        <nav class="navbar">
+            <ul>
+                <li><a href="https://muzerblx.github.io/website">Home</a></li>
+                <li><a href="https://muzerblx.github.io/about">About</a></li>
+                <li><a href="https://muzerblx.github.io/projects">Projects</a></li>
+                <li><a href="https://muzerblx.github.io/contact">Contact</a></li>
+                <li><img src="./Data/pfpicon.png" height="200"></li>
+            </ul>
+        </nav>
+
+        <main>
+
         <h1 style="margin: 10px;">WELCOME TO MUZE'S WEBSITE</h1>
 
-        <label>MuZe is a developer who went from making stupid sword fight games to full studio games</label>
+        <p>MuZe is a developer who went from making stupid sword fight games to full studio games</p>
         <div>
             <label></label>
 
@@ -109,6 +159,5 @@
 
         <div style="align-self:center;"><a href="https://muzerblx.github.io">Base Website</a></div>
 
+    </main>
     </body>
-
-</head>
