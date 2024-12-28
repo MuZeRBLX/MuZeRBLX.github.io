@@ -1,0 +1,181 @@
+<html>
+<nav></nav>
+
+<head>
+
+<title>MuZe's Website</title>
+<link rel="icon" type="image/png" href="./MuZeWeb.png">
+
+</head>
+
+    
+    <body>
+
+        <style>
+            body    {
+        background-color: black;
+        align-items: center;
+        align-self: center;
+        text-align: center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0px;
+    }
+    main {margin: 20px;}
+            input   {
+                align-items: center; 
+                font-size: 20;color: white;
+                background-color: rgb(34, 34, 34);
+                accent-color: black;
+                align-self: center;
+                height: 35;
+                padding: 2%;
+                border-radius: 10px;
+                border: none;
+                margin: 2px 2px;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            button  {
+                align-items: center; 
+                font-size: 20;color: black;
+                background-color: rgb(34, 34, 34);
+                accent-color: black;
+                align-self: center;
+                width: 200;
+                padding: 0%;
+                display: inline-block;
+                cursor: pointer;
+                margin: 4px 2px;
+                padding: 15px 30px;
+                border: none;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .round-button {align-items: center; 
+                font-size: 20;color: white;
+                background-color: rgb(34, 34, 34);
+                accent-color: black;
+                align-self: center;
+                width: 200;
+                padding: 0%;
+                display: inline-block;
+                cursor: pointer;
+                margin: 4px 2px;
+                padding: 1%;
+                border: none;
+                border-radius: 10px;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .round-button:hover {
+                background-color: rgb(136, 136, 136);
+                transform: scale(1.05);
+                
+            }
+            h1 {
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                color: white;
+            }
+            
+            label {
+                font-size: 20;color: white;
+                accent-color: black;
+                align-self: center;
+                width: 500;
+                padding: 0%;
+                display: inline-block;
+                font-family:Arial, sans-serif;
+                font-style: normal;
+                margin: 4px 2px;
+                padding: 1%;
+                border: none;
+                border-radius: 10px;}
+
+            a {
+                font-size: 20;color: white;
+                accent-color: black;
+                align-self: center;
+                width: 300;
+                padding: 0%;
+                display: inline-block;
+                font-family:Arial, sans-serif;
+                font-style: normal;
+                margin: 4px 2px;
+                padding: 1%;
+                border: none;
+                border-radius: 10px;
+            }
+            p {
+                font-size: 20;color: white;
+                accent-color: black;
+                align-self: center;
+                width: 500;
+                padding: 0%;
+                display: inline-block;
+                font-family:Arial, sans-serif;
+                font-style: normal;
+                margin: 4px 2px;
+                padding: 1%;
+                border: none;
+                border-radius: 10px;
+            }
+            .navbar ul{
+                list-style-type:none;
+                background-color: rgb(28, 27, 36);
+                padding: 0px;
+                margin: 0px;
+                overflow: hidden;
+            }
+            .navbar a{
+                color: white;
+                text-decoration: none;
+                padding: 15px;
+                display: block;
+                text-align: center;
+            }
+            .navbar p{
+                color: white;
+                text-decoration: none;
+                padding: 15px;
+                display: block;
+                text-align: center;
+            }
+            .navbar a:hover{
+                background-color: hsl(0, 0%, 10%);
+            }
+            .navbar li{float:left;}
+
+
+        </style>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="https://muzerblx.github.io/website">Home</a></li>
+                <li><a href="https://muzerblx.github.io/about">About</a></li>
+                <li><a href="https://muzerblx.github.io/projects">Projects</a></li>
+                <li><a href="https://muzerblx.github.io/contact">Contact</a></li>
+                <li><img src="./pfpicon.png" height="50"></li>
+            </ul>
+        </nav>
+
+
+        <main>
+
+            <script>
+
+                var fs = require('fs')
+
+                const list = fs.readdirSync('/audios')
+
+                for (let v of list) {
+
+                    audio = document.createElement("audio")
+                    div = document.createElement("div")
+
+                    audio.src = v
+                    div.append(audio)
+                    document.body.append(div)
+
+                }
+
+            </script>
+
+        </main>
+    </body>
