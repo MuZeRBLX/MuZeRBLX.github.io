@@ -128,7 +128,7 @@
                 transition: 0.2s;
 
             }
-            nav.navbar a{
+            nav.navbar a.ahover{
                 color: white;
                 text-decoration: none;
                 padding: 10px 15px; 
