@@ -140,7 +140,7 @@ main {margin: 20px;}
         nav.navbar a.ahover:hover{
             background-color: hsl(0, 0%, 10%);
             outline-style: dotted;
-            transition: 0.2s;
+            transition: 0.1s;
             outline-color: white;
         }
         nav.navbar img {
@@ -151,7 +151,7 @@ main {margin: 20px;}
         nav.navbar img:hover{
             background-color: hsl(0, 0%, 10%);
             outline-style: dotted;
-            transition: 0.2s;
+            transition: 0.1s;
         }
         nav.navbar li{float:left;}
         nav.navbar a.imga {
@@ -175,10 +175,11 @@ main {margin: 20px;}
         div.card-inner {
             text-align: center;
             padding: 10px 20px;
+            align-self: center;
         }
         div.card:hover {
-            transform: scale(1.05);
-            transition: 1s;
+            transform: scale(1.02);
+            transition: 0.2s;
         }
 
 
