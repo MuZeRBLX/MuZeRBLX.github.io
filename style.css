@@ -1,17 +1,4 @@
-<html>
-<nav></nav>
 
-<head>
-
-<title>MuZe's Website</title>
-<link rel="icon" type="image/png" href="Data/MuZeWeb.png">
-
-</head>
-
-    
-    <body>
-
-        <style>
             body    {
         background-color: black;
         align-items: center;
@@ -31,8 +18,17 @@
                 padding: 2%;
                 border-radius: 10px;
                 border: none;
-                margin: 2px 2px;
+                margin: 8px 2px;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                outline-color: white;
+                outline-style: solid;
+            }
+            input:hover {
+                background-color: hsl(0, 0%, 10%);
+                transform: scale(1.05);
+                transition: 0.5s;
+                border-color: rgb(211, 211, 211);
+                outline-color: rgb(211, 211, 211);
             }
             button  {
                 align-items: center; 
@@ -55,19 +51,21 @@
                 accent-color: black;
                 align-self: center;
                 width: 200;
-                padding: 0%;
                 display: inline-block;
                 cursor: pointer;
-                margin: 4px 2px;
-                padding: 1%;
-                border: none;
+                margin: 8px 4px;
+                padding: 10px 30px;
                 border-radius: 10px;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                outline-color: white;
+                outline-style: solid;
             }
             .round-button:hover {
-                background-color: rgb(136, 136, 136);
+                background-color: hsl(0, 0%, 10%);
                 transform: scale(1.05);
-                
+                transition: 0.2s;
+                border-color: rgb(211, 211, 211);
+                outline-color: rgb(211, 211, 211);
             }
             h1 {
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -132,40 +130,21 @@
             }
             .navbar a:hover{
                 background-color: hsl(0, 0%, 10%);
+                outline-style: dotted;
+                transition: 0.2s;
+                outline-color: white;
+            }
+            .navbar img {
+
+                outline-color: white;
+
+            }
+            .navbar img:hover{
+                background-color: hsl(0, 0%, 10%);
+                outline-style: dotted;
+                transition: 0.2s;
             }
             .navbar li{float:left;}
 
 
-        </style>
-
-        <nav class="navbar">
-            <ul>
-                <li><a href="https://muzerblx.github.io/website">Home</a></li>
-                <li><a href="https://muzerblx.github.io/about">About</a></li>
-                <li><a href="https://muzerblx.github.io/projects">Projects</a></li>
-                <li><a href="https://muzerblx.github.io/contact">Contact</a></li>
-                <li><img src="./Data/pfpicon.png" height="50"></li>
-            </ul>
-        </nav>
-
-        <main>
-
-        <h1 style="margin: 10px;">WELCOME TO MUZE'S PROJECTS</h1>
-
-        <div>
-        <p>This is my Port Checker, which I use to check my ports while playing games to just experiment.</p>
-        <div>
-            <img src="./Data/ExampleImages/port.png" alt="Port Checker">
-        </div>
-        </div>
-        <div>
-            <p>This is my Pokedex, which I used to have fun with my friends, looking at the weights and heights of pokemon.</p>
-        <div>
-            <img src="./Data/ExampleImages/poke.png" alt="Pokedex">
-        </div>
-            </div>
-
-        <div style="align-self:center;"><a href="https://muzerblx.github.io">Base Website</a></div>
-
-    </main>
-    </body>
+            
