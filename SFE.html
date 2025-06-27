@@ -61,21 +61,22 @@ a:hover {
     body {
       font-family: "Segoe UI", sans-serif;
       margin: 2rem;
-      background: #f7f7f7;
-      color: #222;
+      background: #0f0f0f;
+      color: #dcdcdc;
     }
     h1, h2, h3 {
-      color: #2b4c7e;
+      color: #8a8a8a;
     }
     pre {
       background: #1e1e1e;
-      color: #dcdcdc;
+      color: #ffffff;
       padding: 1em;
       overflow-x: auto;
       border-radius: 6px;
     }
     code {
-      background: #eee;
+      background: #1e1e1e;
+      color: #ce4940;
       padding: 0.2em 0.4em;
       border-radius: 4px;
     }
@@ -83,6 +84,7 @@ a:hover {
       width: 100%;
       border-collapse: collapse;
       margin: 1em 0;
+      background: #131313;
     }
     th, td {
       border: 1px solid #ccc;
@@ -90,11 +92,12 @@ a:hover {
       text-align: left;
     }
     th {
-      background: #e9e9e9;
+      background: #131313;
     }
     ul {
       margin-left: 1.5em;
     }
+    code.example {color: #2e78b4}
   </style>
 </head>
 <body>
@@ -110,7 +113,7 @@ Simple File Explorer/
 
   <h2>🚀 Plugin Structure</h2>
   <p>Each plugin must define an <code>on_load(app, tools)</code> function:</p>
-  <pre><code>def on_load(app, tools):
+  <pre><code class="example">def on_load(app, tools):
     def on_start():
         tools.show_noti("Plugin loaded!")
     tools.on_event("app_start", on_start)</code></pre>
@@ -160,13 +163,13 @@ Simple File Explorer/
   </table>
 
   <h2>⚡ Example: React to Image Selection</h2>
-  <pre><code>def on_load(app, tools):
+  <pre><code class="example">def on_load(app, tools):
     def handle_file_select(files):
         for f in files:
             if f.lower().endswith((".jpg", ".png")):
                 tools.show_noti("📸 You selected an image!")
 
-    tools.on_event("file_selected", handle_file_select)</code></pre>
+    tools.on_event("file_selected", handle_file_select)</code ></pre>
 
   <h2>🧪 Debugging Tips</h2>
   <ul>
