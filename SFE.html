@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple File Explorer Plugin Guide</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 2rem;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1, h2, h3 {
+      color: #2b4c7e;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+    code {
+      background: #eee;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.6em;
+      text-align: left;
+    }
+    th {
+      background: #e9e9e9;
+    }
+    ul {
+      margin-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧩 Simple File Explorer Plugin Guide</h1>
+
+  <h2>📁 File Structure</h2>
+  <p>Each plugin is a <code>.py</code> file stored in the <code>plugins/</code> folder:</p>
+  <pre>
+Simple File Explorer/
+├── plugins/
+│   ├── my_plugin.py
+  </pre>
+
+  <h2>🚀 Plugin Structure</h2>
+  <p>Each plugin must define an <code>on_load(app, tools)</code> function:</p>
+  <pre><code>def on_load(app, tools):
+    def on_start():
+        tools.show_noti("Plugin loaded!")
+    tools.on_event("app_start", on_start)</code></pre>
+
+  <ul>
+    <li><strong>app</strong>: the Tkinter root window</li>
+    <li><strong>tools</strong>: the PluginAPI instance</li>
+  </ul>
+
+  <h2>🛠️ PluginAPI Methods</h2>
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>on_event(event, handler)</code></td><td>Register a function for a named event</td></tr>
+      <tr><td><code>trigger_event(...)</code></td><td>Manually fire an event</td></tr>
+      <tr><td><code>show_noti(message)</code></td><td>Display a notification near the mouse</td></tr>
+      <tr><td><code>run_error(message)</code></td><td>Show a modal error box</td></tr>
+      <tr><td><code>refreshlist()</code></td><td>Refresh the UI file list</td></tr>
+      <tr><td><code>get_selected_filenames()</code></td><td>Get list of selected files</td></tr>
+      <tr><td><code>delete_path(path)</code></td><td>Delete a file or folder</td></tr>
+      <tr><td><code>events()</code></td><td>List all registered events</td></tr>
+      <tr><td><code>GetCurrentPath()</code></td><td>Lists the current path open in the File Explorer</td></tr>
+    </tbody>
+  </table>
+
+  <h2>🔔 Event Names</h2>
+  <div>(BEWARE SOME MAY NOT BE USABLE, I AM TOO LAZY TO DO ALL)</div>
+  <table>
+    <thead>
+      <tr><th>Event Name</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>"app_start"</code></td><td>Fired when the app starts</td></tr>
+      <tr><td><code>"app_exit"</code></td><td>Right before the app quits</td></tr>
+      <tr><td><code>"plugins_loaded"</code></td><td>After all plugins are loaded</td></tr>
+      <tr><td><code>"directory_changed"</code></td><td>When a new folder is opened</td></tr>
+      <tr><td><code>"file_selected"</code></td><td>When the user selects files</td></tr>
+      <tr><td><code>"file_deleted"</code></td><td>After a file is deleted</td></tr>
+      <tr><td><code>"file_renamed"</code></td><td>After a file is renamed</td></tr>
+      <tr><td><code>"file_created"</code></td><td>After a file/folder is created</td></tr>
+      <tr><td><code>"file_moved"</code></td><td>After a file is moved</td></tr>
+      <tr><td><code>"before_file_delete"</code></td><td>Before deleting a file (can cancel)</td></tr>
+      <tr><td><code>"before_directory_change"</code></td><td>Before changing directory (can cancel)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>⚡ Example: React to Image Selection</h2>
+  <pre><code>def on_load(app, tools):
+    def handle_file_select(files):
+        for f in files:
+            if f.lower().endswith((".jpg", ".png")):
+                tools.show_noti("📸 You selected an image!")
+
+    tools.on_event("file_selected", handle_file_select)</code></pre>
+
+  <h2>🧪 Debugging Tips</h2>
+  <ul>
+    <li>Use <code>print()</code> to log activity</li>
+    <li>Call <code>tools.events()</code> to inspect available event hooks</li>
+    <li>Use <code>tools.run_error(...)</code> to test error dialogs</li>
+    <li>Call <code>tools.refreshlist()</code> if your plugin changes files</li>
+  </ul>
+
+</body>
+</html>
