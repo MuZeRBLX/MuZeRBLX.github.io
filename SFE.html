@@ -94,6 +94,8 @@
       <tr><td><code>GetCurrentPath()</code></td><td>Return current path open in the file explorer</td></tr>
       <tr><td><code>OnKeyPress(key, handler)</code></td><td>Detects when a key is pressed. Special characters include:<br>
         <code>Return</code>, <code>Up</code>, <code>Control-Left</code>, <code>Alt-$</code>, etc.</td></tr>
+      <tr><td><code>AddContextMenuCommand(label,handler)</code></td><td>Adds a command into the Context Menu</td></tr>
+      <tr><td><code>NewFilePrompt()</code></td><td>Creates a prompt for the user to create a new file.</td></tr>
     </tbody>
   </table>
 
@@ -127,6 +129,7 @@
       <tr><td><code>"before_file_delete"</code></td><td>Before deleting a file (can cancel)</td></tr>
       <tr><td><code>"before_directory_change"</code></td><td>Before changing folders (can cancel)</td></tr>
       <tr><td><code>"key_pressed"</code></td><td>When a key is pressed (e.g. <code>&lt;Control-p&gt;</code>)</td></tr>
+      <tr><td><code>"opened_context_menu"</code></td><td>When the Context Menu is opened.</td></tr>
     </tbody>
   </table>
 
@@ -181,6 +184,13 @@
 
     tools.OnKeyPress("<Control-Alt-r>", reverse_colors)
 </code></pre>
+
+  <h2>🎭 Example: Create File in Context Menu</h2>
+  <pre><code class="example">def on_load(app, tools):
+    def on_start():
+        tools.AddContextMenuCommand("Create New File", lambda e: tools.NewFilePrompt())
+        
+    tools.on_event("app_start", on_start)</code></pre>
 
   <h2>🧪 Debugging Tips</h2>
   <ul>
