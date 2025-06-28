@@ -138,7 +138,7 @@ Simple File Explorer/
       <tr><td><code>delete_path(path)</code></td><td>Delete a file or folder</td></tr>
       <tr><td><code>events()</code></td><td>List all registered events</td></tr>
       <tr><td><code>GetCurrentPath()</code></td><td>Lists the current path open in the File Explorer</td></tr>
-        <tr><td><code>OnKeyPress(()</code></td><td> Detects when key is pressed. 
+        <tr><td><code>OnKeyPress(key,handler)</code></td><td> Detects when key is pressed. 
             SPECIAL CHARACTERS: Return - The return / enter key | Up, Down, Left, Right - The arrow keys | space, less - The space and less than keys, respectively | Shift-Up, Alt-Up, Control-Up - The up key was pressed while a modifier key was pressed</td></tr>
     </tbody>
   </table>
@@ -180,7 +180,7 @@ Simple File Explorer/
     
   <h2>⚡ Example: New Window that says "hey" </h2>
   <pre><code class="example">def on_load(app, tools):
-    tk = tools.modules()["tkinter"]
+    tk = tools.modules["tkinter"]
 
     def show_window():
         win = tk.Toplevel(app)
@@ -195,7 +195,7 @@ Simple File Explorer/
     tools.on_event("app_start", lambda: show_window())</code ></pre>
 
 <h2>⚡ Example: Reversing Colors of the Simple File Explorer </h2>
-  <pre><code class="example">def on_load(app, tools=PluginAPI):
+  <pre><code class="example">def on_load(app, tools):
     tk = tools.modules["tkinter"]
 
     def reverse_colors():
