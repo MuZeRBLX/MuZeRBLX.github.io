@@ -108,6 +108,20 @@
         "extradata2": data}</code></td></tr>
       <tr><td><code>run_in_thread(func, *args, **kwargs)</code></td><td>Runs a function in a thread so it doesn't freeze the interface/UI</td></tr>
       <tr><td><code>get_module(name)</code></td><td>Gets a module from the Python Library that's not preloaded.</td></tr>
+      <tr><td><code>get_file_properties(filepath)</code></td><td>Returns a dictionary containing metadata about the given file or folder.
+
+    Returned dictionary keys: <code>
+        - name: The base name of the file or folder.
+        - path: The absolute path.
+        - is_file: True if the path is a regular file.
+        - is_dir: True if the path is a directory.
+        - size: File size in bytes (None for directories).
+        - modified_time: Last modification time (string).
+        - created_time: Creation time (string).
+        - permissions: Unix-style permissions string (e.g., '644').
+        - extension: File extension (if any, for files only).
+    </code>
+    Returns {'error': ...} if the path does not exist or an error occurs.</td></tr>
     </tbody>
   </table>
 
