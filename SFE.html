@@ -138,6 +138,8 @@ Simple File Explorer/
       <tr><td><code>delete_path(path)</code></td><td>Delete a file or folder</td></tr>
       <tr><td><code>events()</code></td><td>List all registered events</td></tr>
       <tr><td><code>GetCurrentPath()</code></td><td>Lists the current path open in the File Explorer</td></tr>
+        <tr><td><code>OnKeyPress(()</code></td><td> Detects when key is pressed. 
+            SPECIAL CHARACTERS: Return - The return / enter key | Up, Down, Left, Right - The arrow keys | space, less - The space and less than keys, respectively | Shift-Up, Alt-Up, Control-Up - The up key was pressed while a modifier key was pressed</td></tr>
     </tbody>
   </table>
 
@@ -159,6 +161,7 @@ Simple File Explorer/
       <tr><td><code>"file_moved"</code></td><td>After a file is moved</td></tr>
       <tr><td><code>"before_file_delete"</code></td><td>Before deleting a file (can cancel)</td></tr>
       <tr><td><code>"before_directory_change"</code></td><td>Before changing directory (can cancel)</td></tr>
+     <tr><td><code>"key_pressed"</code></td><td>When a key is pressed (Gives Key)</td></tr>
     </tbody>
   </table>
 
