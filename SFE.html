@@ -1,59 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-    body {
-  background-color: #121212;
-  color: #e0e0e0;
-  font-family: "Segoe UI", sans-serif;
-  margin: 2rem;
-}
-
-code, pre {
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  border-radius: 5px;
-  padding: 0.2em 0.4em;
-  font-family: Consolas, monospace;
-}
-
-pre {
-  padding: 1em;
-  overflow-x: auto;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 1em;
-  background-color: #1e1e1e;
-}
-
-th, td {
-  border: 1px solid #333;
-  padding: 0.6em;
-  color: #ccc;
-}
-
-th {
-  background-color: #2a2a2a;
-}
-
-h1, h2, h3 {
-  color: #90caf9;
-}
-
-a {
-  color: #80cbc4;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-  </style>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Simple File Explorer Plugin Guide</title>
@@ -65,20 +12,21 @@ a:hover {
       color: #dcdcdc;
     }
     h1, h2, h3 {
-      color: #8a8a8a;
+      color: #90caf9;
+    }
+    pre, code {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: Consolas, monospace;
+      border-radius: 5px;
     }
     pre {
-      background: #1e1e1e;
-      color: #ffffff;
       padding: 1em;
       overflow-x: auto;
       border-radius: 6px;
     }
     code {
-      background: #1e1e1e;
-      color: #ce4940;
       padding: 0.2em 0.4em;
-      border-radius: 4px;
     }
     table {
       width: 100%;
@@ -87,17 +35,25 @@ a:hover {
       background: #131313;
     }
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #333;
       padding: 0.6em;
+      color: #ccc;
       text-align: left;
     }
     th {
-      background: #131313;
+      background: #2a2a2a;
     }
     ul {
       margin-left: 1.5em;
     }
-    code.example {color: #2e78b4}
+    code.example { color: #2e78b4; }
+    a {
+      color: #80cbc4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -105,11 +61,9 @@ a:hover {
 
   <h2>📁 File Structure</h2>
   <p>Each plugin is a <code>.py</code> file stored in the <code>plugins/</code> folder:</p>
-  <pre>
-Simple File Explorer/
+  <pre>Simple File Explorer/
 ├── plugins/
-│   ├── my_plugin.py
-  </pre>
+│   ├── my_plugin.py</pre>
 
   <h2>🚀 Plugin Structure</h2>
   <p>Each plugin must define an <code>on_load(app, tools)</code> function:</p>
@@ -117,12 +71,12 @@ Simple File Explorer/
     def on_start():
         tools.show_noti("Plugin loaded!")
     tools.on_event("app_start", on_start)</code></pre>
-
   <ul>
     <li><strong>app</strong>: the Tkinter root window</li>
-    <li><strong>tools</strong>: the PluginAPI instance</li>
+    <li><strong>tools</strong>: the shared PluginAPI instance</li>
   </ul>
-<p>After that a plugin has virtually ANY possibilities, meaning you can make whole new programs!</p>
+  <p>After that, a plugin has virtually <strong>any</strong> possibilities—you can even build full apps inside it!</p>
+
   <h2>🛠️ PluginAPI Methods</h2>
   <table>
     <thead>
@@ -137,31 +91,42 @@ Simple File Explorer/
       <tr><td><code>get_selected_filenames()</code></td><td>Get list of selected files</td></tr>
       <tr><td><code>delete_path(path)</code></td><td>Delete a file or folder</td></tr>
       <tr><td><code>events()</code></td><td>List all registered events</td></tr>
-      <tr><td><code>GetCurrentPath()</code></td><td>Lists the current path open in the File Explorer</td></tr>
-        <tr><td><code>OnKeyPress(key,handler)</code></td><td> Detects when key is pressed. 
-            SPECIAL CHARACTERS: Return - The return / enter key | Up, Down, Left, Right - The arrow keys | space, less - The space and less than keys, respectively | Shift-Up, Alt-Up, Control-Up - The up key was pressed while a modifier key was pressed</td></tr>
+      <tr><td><code>GetCurrentPath()</code></td><td>Return current path open in the file explorer</td></tr>
+      <tr><td><code>OnKeyPress(key, handler)</code></td><td>Detects when a key is pressed. Special characters include:<br>
+        <code>Return</code>, <code>Up</code>, <code>Control-Left</code>, <code>Alt-$</code>, etc.</td></tr>
     </tbody>
   </table>
 
+  <h2>📦 Plugin Metadata (Optional)</h2>
+  <p>Add a <code>plugin_info</code> block to declare plugin details:</p>
+  <pre><code class="example">plugin_info = {
+    "name": "Reverse Theme",
+    "author": "jr",
+    "version": "1.0.0",
+    "trusted": True
+}</code></pre>
+  <p>This appears in the Plugin Manager if present.</p>
+
+  <h2>🧩 Built-In Plugin Manager</h2>
+  <p>Press <code>Ctrl+P</code> to open a window listing all installed plugins, their authors, and version numbers.</p>
+
   <h2>🔔 Event Names</h2>
-  <div>(BEWARE SOME MAY NOT BE USABLE, I AM TOO LAZY TO DO ALL)</div>
+  <p>(Some events are experimental or reserved.)</p>
   <table>
-    <thead>
-      <tr><th>Event Name</th><th>Description</th></tr>
-    </thead>
+    <thead><tr><th>Event Name</th><th>Description</th></tr></thead>
     <tbody>
       <tr><td><code>"app_start"</code></td><td>Fired when the app starts</td></tr>
-      <tr><td><code>"app_exit"</code></td><td>Right before the app quits</td></tr>
+      <tr><td><code>"app_exit"</code></td><td>Before the app quits</td></tr>
       <tr><td><code>"plugins_loaded"</code></td><td>After all plugins are loaded</td></tr>
-      <tr><td><code>"directory_changed"</code></td><td>When a new folder is opened</td></tr>
-      <tr><td><code>"file_selected"</code></td><td>When the user selects files</td></tr>
+      <tr><td><code>"directory_changed"</code></td><td>When the current directory changes</td></tr>
+      <tr><td><code>"file_selected"</code></td><td>When user selects files</td></tr>
       <tr><td><code>"file_deleted"</code></td><td>After a file is deleted</td></tr>
       <tr><td><code>"file_renamed"</code></td><td>After a file is renamed</td></tr>
-      <tr><td><code>"file_created"</code></td><td>After a file/folder is created</td></tr>
+      <tr><td><code>"file_created"</code></td><td>After a new file or folder is created</td></tr>
       <tr><td><code>"file_moved"</code></td><td>After a file is moved</td></tr>
       <tr><td><code>"before_file_delete"</code></td><td>Before deleting a file (can cancel)</td></tr>
-      <tr><td><code>"before_directory_change"</code></td><td>Before changing directory (can cancel)</td></tr>
-     <tr><td><code>"key_pressed"</code></td><td>When a key is pressed (Gives Key)</td></tr>
+      <tr><td><code>"before_directory_change"</code></td><td>Before changing folders (can cancel)</td></tr>
+      <tr><td><code>"key_pressed"</code></td><td>When a key is pressed (e.g. <code>&lt;Control-p&gt;</code>)</td></tr>
     </tbody>
   </table>
 
@@ -172,13 +137,13 @@ Simple File Explorer/
             if f.lower().endswith((".jpg", ".png")):
                 tools.show_noti("📸 You selected an image!")
 
-    tools.on_event("file_selected", handle_file_select)</code ></pre>
+    tools.on_event("file_selected", handle_file_select)</code></pre>
 
-     <h2>⚠️Adding Extra Stuff</h2>
-  <p>Plugins are able to use modules through the <code>tools.modules()["example module"]</code> method (os,shutil,tkinter,vlc,PIL,random). So theoretically you could make another 
-      program using it. (THIS IS VERY HARD TO DO WITHOUT PREVIOUS CODING KNOWLEDGE ON EACH MODULE.. or.. using AI..) </p>
-    
-  <h2>⚡ Example: New Window that says "hey" </h2>
+  <h2>⚙️ Extra Module Access</h2>
+  <p>Access pre-imported modules via <code>tools.modules["name"]</code>.<br>
+     Available: <code>os</code>, <code>shutil</code>, <code>tkinter</code>, <code>vlc</code>, <code>PIL</code>, <code>random</code></p>
+
+  <h2>🪟 Example: Pop-up That Says “hey”</h2>
   <pre><code class="example">def on_load(app, tools):
     tk = tools.modules["tkinter"]
 
@@ -192,9 +157,9 @@ Simple File Explorer/
         win.grab_set()
         win.focus_force()
 
-    tools.on_event("app_start", lambda: show_window())</code ></pre>
+    tools.on_event("app_start", lambda: show_window())</code></pre>
 
-<h2>⚡ Example: Reversing Colors of the Simple File Explorer </h2>
+  <h2>🎭 Example: Reversing Colors</h2>
   <pre><code class="example">def on_load(app, tools):
     tk = tools.modules["tkinter"]
 
@@ -211,12 +176,11 @@ Simple File Explorer/
                 pass
             for child in widget.winfo_children():
                 invert_widget_colors(child)
-
-        invert_widget_colors(app)
+                invert_widget_colors(app)
         tools.show_noti("🎭 Reverse theme activated!")
 
-    # Bind Ctrl+Alt+R (you can also use event.state for more complex combos)
-    tools.OnKeyPress("r",reverse_colors)</code ></pre>
+    tools.OnKeyPress("<Control-Alt-r>", reverse_colors)
+</code></pre>
 
   <h2>🧪 Debugging Tips</h2>
   <ul>
@@ -227,3 +191,4 @@ Simple File Explorer/
   </ul>
 </body>
 </html>
+       
