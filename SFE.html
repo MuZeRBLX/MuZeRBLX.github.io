@@ -110,7 +110,7 @@
       <tr><td><code>get_module(name)</code></td><td>Gets a module from the Python Library that's not preloaded.</td></tr>
       <tr><td><code>get_file_properties(filepath)</code></td><td>Returns a dictionary containing metadata about the given file or folder.
 
-    Returned dictionary keys: <code>
+    Returned dictionary keys: <pre><code>
         - name: The base name of the file or folder.
         - path: The absolute path.
         - is_file: True if the path is a regular file.
@@ -120,7 +120,7 @@
         - created_time: Creation time (string).
         - permissions: Unix-style permissions string (e.g., '644').
         - extension: File extension (if any, for files only).
-    </code>
+    </code></pre>
     Returns {'error': ...} if the path does not exist or an error occurs.</td></tr>
     </tbody>
   </table>
